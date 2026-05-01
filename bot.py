@@ -8,7 +8,7 @@ intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
-@tree.command(name="petitbac", description="Génère une sélection de 10 éléments")
+@tree.command(name="acab", description="Génère une sélection de 10 éléments")
 async def petitbac(interaction: discord.Interaction):
     selection1 = random.sample(liste_1, 6)
     selection2 = random.sample(liste_2, 2)
@@ -22,6 +22,11 @@ async def petitbac(interaction: discord.Interaction):
         lignes.append(e)
 
     await interaction.response.send_message("\n".join(lignes))
+
+@tree.command(name="lettre", description="Génère une lettre aléatoire")
+async def lettre(interaction: discord.Interaction):
+    lettre_aleatoire = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    await interaction.response.send_message(f"**Lettre : {lettre_aleatoire}**")
 
 @client.event
 async def on_ready():
