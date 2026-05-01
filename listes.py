@@ -30,7 +30,7 @@ liste_2 = [
             "Choses qui se plient : ", 
             "Choses qui s'empilent : ", 
             "Choses avec un ou des pieds : ",
-            "Choses avec un ou des trous", 
+            "Choses avec un ou des trous : ", 
             "Choses à la verticale : ", 
             "Choses à l'horizontal : "
             ]
