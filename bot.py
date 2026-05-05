@@ -43,10 +43,15 @@ async def xxx(interaction: discord.Interaction):
 
     # Vérifie si quelqu'un a déjà gagné aujourd'hui
     if donnees["gagnant"]["date"] == aujourd_hui:
-        gagnant_mention = f"<@{donnees['gagnant']['user_id']}>"
-        await interaction.response.send_message(
-            f"Désolé {mention}, mais c'est {gagnant_mention} qui a tous les cramptés aujourd'hui, réessaie demain."
-        )
+        if donnees["gagnant"]["user_id"] == user_id:
+            await interaction.response.send_message(
+                f"Tu sais déjà que tu as gagné {mention}, pas besoin de retenter aujourd'hui !"
+            )
+        else:
+            gagnant_mention = f"<@{donnees['gagnant']['user_id']}>"
+            await interaction.response.send_message(
+                f"Désolé {mention}, {gagnant_mention} a déjà gagné aujourd'hui. Il faudra réessayer demain !"
+            )
         return
 
     # Vérifie si cette personne a déjà tenté aujourd'hui
