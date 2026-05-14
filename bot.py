@@ -33,10 +33,6 @@ messages_perdant = [
     "Dommage {mention}, tu es crampté-less aujourd'hui...",
 ]
 
-@tree.command(name="ping", description="Vérifie si le bot est en ligne")
-async def ping(interaction: discord.Interaction):
-    await interaction.response.send_message("Les cramptés sont ouverts !")
-
 @tree.command(name="cramptés", description="Est-ce que tu les as ?")
 async def xxx(interaction: discord.Interaction):
     aujourd_hui = str(datetime.now(timezone.utc).date())
@@ -100,6 +96,10 @@ async def petitbac(interaction: discord.Interaction):
 async def lettre(interaction: discord.Interaction):
     lettre_aleatoire = random.choice("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     await interaction.response.send_message(f"**Lettre : {lettre_aleatoire}**")
+
+@tree.command(name="ping", description="Vérifie si le bot est en ligne")
+async def ping(interaction: discord.Interaction):
+    await interaction.response.send_message("Les cramptés sont ouverts !")
 
 @client.event
 async def on_ready():
